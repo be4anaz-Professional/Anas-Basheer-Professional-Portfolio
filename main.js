@@ -36,3 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.fade-in, .slide-up');
     animatedElements.forEach(el => observer.observe(el));
 });
+
+// Toggle CV Embed
+function toggleCV() {
+    const cvSection = document.getElementById('cv-section');
+    if (cvSection.style.display === 'none' || cvSection.style.display === '') {
+        cvSection.style.display = 'block';
+        setTimeout(() => { cvSection.style.opacity = '1'; }, 10);
+        cvSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        cvSection.style.opacity = '0';
+        setTimeout(() => { cvSection.style.display = 'none'; }, 500);
+    }
+}

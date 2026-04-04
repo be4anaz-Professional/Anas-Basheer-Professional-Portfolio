@@ -37,6 +37,7 @@
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Contact Me</a>
                 <a href="#experience" class="btn btn-secondary">View Work</a>
+                <button onclick="toggleCV()" class="btn btn-glow">View My C.V. 📄</button>
             </div>
         </div>
         <div class="hero-shapes">
@@ -44,6 +45,15 @@
             <div class="shape shape-2"></div>
         </div>
     </header>
+
+    <!-- CV Section (Hidden by default) -->
+    <section id="cv-section" class="cv-embed glass-card">
+        <div class="cv-header">
+            <h3>My Curriculum Vitae</h3>
+            <button onclick="toggleCV()" class="close-cv">&times;</button>
+        </div>
+        <iframe src="Anas-Basheer.pdf" width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about-section slide-up">
