@@ -49,3 +49,25 @@ function toggleCV() {
         setTimeout(() => { cvSection.style.display = 'none'; }, 500);
     }
 }
+
+// Google Form Submission Logic
+let submitted = false;
+
+function showContactSuccess() {
+    // Reset the form
+    document.getElementById('contactForm').reset();
+    
+    // Show the popup
+    const popup = document.getElementById('successPopup');
+    popup.style.display = 'flex';
+    setTimeout(() => { popup.classList.add('active'); }, 10); // Small delay to allow display flex to apply before opacity transition
+    
+    // Reset flag
+    submitted = false;
+}
+
+function closePopup() {
+    const popup = document.getElementById('successPopup');
+    popup.classList.remove('active');
+    setTimeout(() => { popup.style.display = 'none'; }, 300);
+}

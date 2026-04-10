@@ -191,7 +191,8 @@
                 <a href="https://instagram.com/AnazInd" target="_blank" class="social-btn">Instagram</a>
             </div>
             <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 2rem 0;">
-            <form class="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd_Oq0Yj-0LmghelfWq3xAkKCwspqESN0aJz-sabKwNKGu0bQ/formResponse" method="POST" target="_blank">
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showContactSuccess();}"></iframe>
+            <form id="contactForm" class="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd_Oq0Yj-0LmghelfWq3xAkKCwspqESN0aJz-sabKwNKGu0bQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 <input type="text" name="entry.1737154110" placeholder="Your Name" required class="form-input">
                 <input type="email" name="entry.2088101684" placeholder="Your Email" required class="form-input">
                 <textarea name="entry.99080880" placeholder="Your Message" rows="4" required class="form-input"></textarea>
@@ -199,6 +200,15 @@
             </form>
         </div>
     </section>
+
+    <!-- Contact Success Popup -->
+    <div id="successPopup" class="popup-overlay" style="display: none;">
+        <div class="popup-content glass-card">
+            <h3 style="color: var(--accent-1); margin-bottom: 1rem;">Thank you for your submission!</h3>
+            <p>Your message was sent successfully. I will review it and get back to you shortly.</p>
+            <button type="button" onclick="closePopup()" class="btn btn-primary" style="margin-top: 1.5rem; padding: 0.5rem 1.5rem; border: none; cursor: pointer;">Close</button>
+        </div>
+    </div>
 
     <!-- CV External Link -->
     <div style="text-align: center; margin: 2rem 0 4rem 0;">
