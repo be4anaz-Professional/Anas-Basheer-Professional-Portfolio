@@ -593,3 +593,174 @@ footer {
 .popup-overlay.active .popup-content {
     transform: translateY(0);
 }
+
+/* Events Section & Side Tabs */
+.events-section {
+    padding: 6rem 10%;
+    position: relative;
+    z-index: 2;
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+}
+
+@media(min-width: 768px) {
+    .tabs-container {
+        flex-direction: row;
+        min-height: 400px;
+    }
+}
+
+.tabs-sidebar {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+@media(min-width: 768px) {
+    .tabs-sidebar {
+        flex-direction: column;
+        width: 35%;
+        min-width: 280px;
+        border-right: 1px solid var(--glass-border);
+        border-bottom: none;
+    }
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1.5rem;
+    text-align: left;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-family: var(--font-heading);
+    white-space: nowrap;
+}
+
+@media(min-width: 768px) {
+    .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        white-space: normal;
+    }
+}
+
+.tab-btn small {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.3rem;
+    font-family: var(--font-body);
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--accent-1);
+    border-bottom-color: var(--accent-1);
+}
+
+@media(min-width: 768px) {
+    .tab-btn.active {
+        border-bottom-color: transparent;
+        border-left-color: var(--accent-1);
+    }
+}
+
+.tabs-content {
+    flex: 1;
+    padding: 2.5rem;
+    position: relative;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeInTab 0.5s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane h3 {
+    color: var(--accent-2);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.event-list {
+    list-style: none;
+    position: relative;
+    padding-left: 0;
+}
+
+.event-list::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--glass-border);
+}
+
+.event-list li {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 2rem;
+}
+
+.event-list li::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    box-shadow: 0 0 10px var(--accent-1);
+}
+
+.event-year {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-1);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.event-list strong {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.event-list p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -71,3 +71,22 @@ function closePopup() {
     popup.classList.remove('active');
     setTimeout(() => { popup.style.display = 'none'; }, 300);
 }
+
+// Side Tabs Logic for Events Section
+function openTab(evt, tabId) {
+    // Hide all tab panes
+    const tabPanes = document.getElementsByClassName("tab-pane");
+    for (let i = 0; i < tabPanes.length; i++) {
+        tabPanes[i].classList.remove("active");
+    }
+    
+    // Remove active class from all buttons
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+    
+    // Show current tab and set active class
+    document.getElementById(tabId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
