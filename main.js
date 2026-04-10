@@ -100,6 +100,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let ytPlayer;
 function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('youtube-player', {
+        width: '100%',
+        height: '100%',
         videoId: 'CM86ikow2hM', // Highly demanding, massive network simulation demo
         playerVars: {
             'autoplay': 1, 'controls': 0, 'mute': 1, 'showinfo': 0,
