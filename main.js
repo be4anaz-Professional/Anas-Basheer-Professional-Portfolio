@@ -90,3 +90,34 @@ function openTab(evt, tabId) {
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
 }
+
+// Precise YouTube Background Loop (Slices Intro Logos Completely)
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let ytPlayer;
+function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('youtube-player', {
+        videoId: 'CM86ikow2hM', // Highly demanding, massive network simulation demo
+        playerVars: {
+            'autoplay': 1, 'controls': 0, 'mute': 1, 'showinfo': 0,
+            'rel': 0, 'modestbranding': 1, 'playsinline': 1, 'start': 24
+        },
+        events: {
+            'onReady': (e) => e.target.playVideo()
+        }
+    });
+    
+    // Tightly force the loop from second 24 to second 80 (pure mass-scale traffic simulation)
+    setInterval(() => {
+        if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
+            let time = ytPlayer.getCurrentTime();
+            if (time >= 80 || time < 24) {
+                ytPlayer.seekTo(24);
+                ytPlayer.playVideo();
+            }
+        }
+    }, 500);
+}
