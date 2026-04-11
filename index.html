@@ -18,7 +18,8 @@
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#jobs">Career Jobs</a></li>
+            <li><a href="#projects">Projects & Internships</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact" class="btn-nav">Contact</a></li>
@@ -41,7 +42,7 @@
             <p class="subtitle">A Professional Portfolio showcasing my Education, Engineering projects, Technical skills, Infrastructure inspection experience, and Services.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Contact Me</a>
-                <a href="#experience" class="btn btn-secondary">View Work</a>
+                <a href="#jobs" class="btn btn-secondary">View Jobs</a>
                 <button onclick="toggleCV()" class="btn btn-glow">View My C.V. 📄</button>
             </div>
         </div>
@@ -81,10 +82,21 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section slide-up">
-        <h2 class="section-title">Experience & Projects</h2>
-        <div class="timeline">
+    <!-- Professional Jobs Section -->
+    <section id="jobs" class="experience-section slide-up">
+        <h2 class="section-title">Professional Career & Jobs</h2>
+        
+        <!-- Job Showcase Video Container -->
+        <div class="job-video-wrapper glass-card">
+            <h3 style="color: var(--accent-1); margin-bottom: 0.5rem; text-align: center;">Job Showcase Video</h3>
+            <p class="video-subtitle" style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem;">(Upload your 'job-video.mp4' file to the project folder to view it here)</p>
+            <video class="job-video-player" controls muted loop>
+                <source src="job-video.mp4" type="video/mp4">
+                Your browser does not support the video tag. Please upload "job-video.mp4" to your folder.
+            </video>
+        </div>
+
+        <div class="timeline" style="margin-top: 4rem;">
             <div class="timeline-item glass-card">
                 <div class="timeline-dot"></div>
                 <h3>Infrastructure Inspection & Rehabilitation Specialist</h3>
@@ -108,30 +120,12 @@
             </div>
             <div class="timeline-item glass-card">
                 <div class="timeline-dot"></div>
-                <h3>Evaluation of Air Transport Safety Management System</h3>
-                <h4>Project &mdash; Indian (Calicut) Airport</h4>
-                <p>The aviation industry, prioritizing safety, adopted SMS to unify administration and improve safety globally. India, a council member, actively contributes to safety initiatives but faces coordination challenges. Richard de Neufville highlights the balance between safety and economics in airport performance.</p>
-                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Evaluating Indian aviation, this thesis focuses on qualitative elements and airport employees' satisfaction. The Calicut airport case study illustrates the structural hierarchy and regulatory aspects of SMS, assessing safety incidents from 2008 to 2021. It evaluates AAI and DGCA's SMS measures pre and post the Calicut incident, utilizing impact matrices to mitigate risks. Implementing SMS tools can further enhance air traffic safety, reducing accident rates effectively.</p>
-                <a href="https://apd.usos.pw.edu.pl/diplomas/57521/" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; display: inline-block; padding: 0.6rem 1.2rem; font-size: 0.9rem;">View Thesis Details</a>
-            </div>
-            <div class="timeline-item glass-card">
-                <div class="timeline-dot"></div>
                 <h3>Logistics Sorting Team Leader</h3>
                 <h4>Inpost &mdash; Warsaw, Poland</h4>
                 <ul class="exp-list" style="margin-top: 0.5rem;">
                     <li>Managed parcel sorting operations, improving accuracy and dispatch efficiency.</li>
                     <li>Coordinated across logistics and warehouse teams to streamline workflows and reduce delays.</li>
                     <li>Supported shipment tracking, documentation, and operations monitoring.</li>
-                </ul>
-            </div>
-            <div class="timeline-item glass-card">
-                <div class="timeline-dot"></div>
-                <h3>Logistics Specialist Intern</h3>
-                <h4>ILS Intercars &mdash; Modlin, Poland</h4>
-                <ul class="exp-list" style="margin-top: 0.5rem;">
-                    <li>Assisted with transportation, warehousing, and supply chain operations.</li>
-                    <li>Conducted data analysis and prepared logistics performance reports.</li>
-                    <li>Coordinated supplier deliveries and supported logistics improvement initiatives.</li>
                 </ul>
             </div>
             <div class="timeline-item glass-card">
@@ -159,6 +153,31 @@
                 <h4>SN Automobiles &mdash; Kerala, India</h4>
                 <ul class="exp-list" style="margin-top: 0.5rem;">
                     <li>Hands-on training in automotive diagnostics and repair, adhering to safety standards.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Projects & Internships Section -->
+    <section id="projects" class="experience-section slide-up">
+        <h2 class="section-title">Academic Projects & Internships</h2>
+        <div class="timeline">
+            <div class="timeline-item glass-card">
+                <div class="timeline-dot"></div>
+                <h3>Evaluation of Air Transport Safety Management System</h3>
+                <h4>Project &mdash; Indian (Calicut) Airport</h4>
+                <p>The aviation industry, prioritizing safety, adopted SMS to unify administration and improve safety globally. India, a council member, actively contributes to safety initiatives but faces coordination challenges. Richard de Neufville highlights the balance between safety and economics in airport performance.</p>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Evaluating Indian aviation, this thesis focuses on qualitative elements and airport employees' satisfaction. The Calicut airport case study illustrates the structural hierarchy and regulatory aspects of SMS, assessing safety incidents from 2008 to 2021. It evaluates AAI and DGCA's SMS measures pre and post the Calicut incident, utilizing impact matrices to mitigate risks. Implementing SMS tools can further enhance air traffic safety, reducing accident rates effectively.</p>
+                <a href="https://apd.usos.pw.edu.pl/diplomas/57521/" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; display: inline-block; padding: 0.6rem 1.2rem; font-size: 0.9rem;">View Thesis Details</a>
+            </div>
+            <div class="timeline-item glass-card">
+                <div class="timeline-dot"></div>
+                <h3>Logistics Specialist Intern</h3>
+                <h4>ILS Intercars &mdash; Modlin, Poland</h4>
+                <ul class="exp-list" style="margin-top: 0.5rem;">
+                    <li>Assisted with transportation, warehousing, and supply chain operations.</li>
+                    <li>Conducted data analysis and prepared logistics performance reports.</li>
+                    <li>Coordinated supplier deliveries and supported logistics improvement initiatives.</li>
                 </ul>
             </div>
         </div>
