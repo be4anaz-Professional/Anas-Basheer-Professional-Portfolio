@@ -868,36 +868,30 @@ footer {
     border: 1px solid var(--glass-border);
 }
 
-.slider-progress-bar {
+.slider-bullets {
     display: flex;
-    gap: 6px;
-    padding: 15px 15px 50px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
-}
-
-.progress-segment {
-    flex: 1;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 2px;
-    cursor: pointer;
-    overflow: hidden;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 0;
     position: relative;
+    z-index: 10;
 }
 
-.progress-fill {
-    height: 100%;
-    width: 0%;
+.bullet-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bullet-dot.active {
     background: var(--accent-1);
-    box-shadow: 0 0 10px var(--accent-1);
-}
-
-.progress-segment.active .progress-fill {
-    /* Animation handled by JS or CSS transition */
+    transform: scale(1.3);
+    box-shadow: 0 0 12px var(--accent-1);
+    border-color: var(--accent-1);
 }
 
 .video-slider {

@@ -97,13 +97,13 @@ function initSlider() {
 
 function updateSlider() {
     const slider = document.getElementById('main-video-slider');
-    const fills = document.querySelectorAll('.progress-fill');
+    const dots = document.querySelectorAll('.bullet-dot');
     
     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
     
-    // Reset all progress fills
-    fills.forEach((fill, i) => {
-        fill.style.width = i < currentSlide ? '100%' : '0%';
+    // Update active dot
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
     });
     
     playCurrentSlide();
@@ -125,19 +125,7 @@ function playCurrentSlide() {
     if (type === 'native') {
         const video = activeSlide.querySelector('.slider-video');
         video.play().catch(e => console.log("Autoplay blocked or failed", e));
-        
         video.onended = () => moveSlide(1);
-        
-        // Track progress
-        const updateProgress = () => {
-            if (currentSlide === Array.from(slides).indexOf(activeSlide) && !video.paused) {
-                const progress = (video.currentTime / video.duration) * 100;
-                const fill = document.querySelectorAll('.progress-fill')[currentSlide];
-                if (fill) fill.style.width = `${progress}%`;
-                requestAnimationFrame(updateProgress);
-            }
-        };
-        requestAnimationFrame(updateProgress);
     } else if (type === 'youtube') {
         if (showcasePlayer && showcasePlayer.playVideo) {
             showcasePlayer.seekTo(2404);
@@ -197,9 +185,6 @@ function onYouTubeIframeAPIReady() {
                 if (event.data === YT.PlayerState.ENDED) {
                     moveSlide(1);
                 }
-                if (event.data === YT.PlayerState.PLAYING) {
-                    updateYTProgress();
-                }
             }
         }
     });
@@ -214,18 +199,4 @@ function onYouTubeIframeAPIReady() {
             }
         }
     }, 500);
-}
-
-function updateYTProgress() {
-    if (showcasePlayer && showcasePlayer.getPlayerState() === YT.PlayerState.PLAYING && currentSlide === 2) {
-        const currentTime = showcasePlayer.getCurrentTime();
-        const start = 2404;
-        const end = 2492;
-        const progress = ((currentTime - start) / (end - start)) * 100;
-        const fills = document.querySelectorAll('.progress-fill');
-        if (fills[2]) {
-            fills[2].style.width = `${Math.min(100, Math.max(0, progress))}%`;
-            requestAnimationFrame(updateYTProgress);
-        }
-    }
 }

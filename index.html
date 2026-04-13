@@ -91,13 +91,6 @@
         <!-- Job Showcase Video Slider -->
         <div class="job-video-wrapper glass-card" style="padding: 1rem;">
             <div class="slider-container">
-                <!-- Instagram Style Progress Bars -->
-                <div class="slider-progress-bar">
-                    <div class="progress-segment" onclick="goToSlide(0)"><div class="progress-fill"></div></div>
-                    <div class="progress-segment" onclick="goToSlide(1)"><div class="progress-fill"></div></div>
-                    <div class="progress-segment" onclick="goToSlide(2)"><div class="progress-fill"></div></div>
-                </div>
-
                 <div class="video-slider" id="main-video-slider">
                     <!-- Slide 1: Panoramic 1 -->
                     <div class="video-slide active" data-type="native">
@@ -136,6 +129,13 @@
                 <!-- Slider Navigation -->
                 <button class="slider-arrow prev" onclick="moveSlide(-1)">&lsaquo;</button>
                 <button class="slider-arrow next" onclick="moveSlide(1)">&rsaquo;</button>
+
+                <!-- Instagram Feed Style Bullets -->
+                <div class="slider-bullets">
+                    <div class="bullet-dot" onclick="goToSlide(0)"></div>
+                    <div class="bullet-dot" onclick="goToSlide(1)"></div>
+                    <div class="bullet-dot" onclick="goToSlide(2)"></div>
+                </div>
             </div>
         </div>
 
