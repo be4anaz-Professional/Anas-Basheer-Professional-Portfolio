@@ -959,11 +959,26 @@ footer {
 .slider-arrow.prev { left: 20px; }
 .slider-arrow.next { right: 20px; }
 
-/* Adjust job-video-cropper for slider */
+/* Adjust job-video-cropper for slider - ensuring precise 16:9 aspect ratio */
 .video-slide .job-video-cropper {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
     max-width: none;
     border-radius: 0;
     border: none;
     box-shadow: none;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Ensure the YouTube iframe (and its placeholder div) fills the 16:9 container perfectly */
+.video-slide .job-video-cropper iframe,
+.video-slide #showcase-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
 }
