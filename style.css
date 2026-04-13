@@ -972,7 +972,34 @@ footer {
     overflow: hidden;
 }
 
-/* Ensure the YouTube iframe (and its placeholder div) fills the 16:9 container perfectly */
+/* Report Slide Specific Styles */
+.report-preview-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    margin: 1rem 2rem;
+    border-radius: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-height: 300px;
+}
+
+.report-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 15px var(--accent-1));
+}
+
+.report-details p {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+}
+
+/* Ensure the YouTube iframe (and its placeholder div) fills the 21:9 container perfectly */
 .video-slide .job-video-cropper iframe,
 .video-slide #showcase-player {
     position: absolute;

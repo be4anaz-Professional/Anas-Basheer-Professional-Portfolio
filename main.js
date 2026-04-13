@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize Video Slider
     initSlider();
+    
+    // Initialize Reports Slider
+    initReportsSlider();
 });
 
 // Toggle CV Embed
@@ -143,6 +146,55 @@ function moveSlide(direction) {
 function goToSlide(index) {
     currentSlide = index;
     updateSlider();
+}
+
+// --- REPORTS SLIDER LOGIC ---
+let reportCurrentSlide = 0;
+let reportInterval;
+
+function initReportsSlider() {
+    const slides = document.querySelectorAll('#reports-slider .video-slide');
+    if (!slides.length) return;
+    
+    updateReportsSlider();
+    
+    // Auto-slide every 5 seconds for reports
+    reportInterval = setInterval(() => {
+        moveReportSlide(1);
+    }, 5000);
+    
+    // Pause auto-slide on hover
+    const reportsContainer = document.getElementById('reports-slider-container');
+    if (reportsContainer) {
+        reportsContainer.addEventListener('mouseenter', () => clearInterval(reportInterval));
+        reportsContainer.addEventListener('mouseleave', () => {
+            reportInterval = setInterval(() => moveReportSlide(1), 5000);
+        });
+    }
+}
+
+function updateReportsSlider() {
+    const slider = document.getElementById('reports-slider');
+    const dots = document.querySelectorAll('#reports-bullets .bullet-dot');
+    
+    if (!slider) return;
+    slider.style.transform = `translateX(-${reportCurrentSlide * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === reportCurrentSlide);
+    });
+}
+
+function moveReportSlide(direction) {
+    const slides = document.querySelectorAll('#reports-slider .video-slide');
+    if (!slides.length) return;
+    reportCurrentSlide = (reportCurrentSlide + direction + slides.length) % slides.length;
+    updateReportsSlider();
+}
+
+function goToReportSlide(index) {
+    reportCurrentSlide = index;
+    updateReportsSlider();
 }
 
 // --- YOUTUBE API INTEGRATION ---
