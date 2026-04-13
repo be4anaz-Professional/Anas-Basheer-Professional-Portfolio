@@ -924,7 +924,7 @@ footer {
 
 .slider-video {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
     object-fit: cover;
     display: block;
     background: #000;
@@ -959,10 +959,10 @@ footer {
 .slider-arrow.prev { left: 20px; }
 .slider-arrow.next { right: 20px; }
 
-/* Adjust job-video-cropper for slider - ensuring precise 16:9 aspect ratio */
+/* Adjust job-video-cropper for slider - ensuring precise 21:9 aspect ratio */
 .video-slide .job-video-cropper {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
     position: relative;
     max-width: none;
     border-radius: 0;
