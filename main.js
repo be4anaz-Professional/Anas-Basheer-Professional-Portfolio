@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Video Slider
     initSlider();
     
-    // Initialize Reports Slider
-    initReportsSlider();
+    // Initialize Job Reports Mini-Slider
+    initJobReportsSlider();
 });
 
 // Toggle CV Embed
@@ -148,53 +148,38 @@ function goToSlide(index) {
     updateSlider();
 }
 
-// --- REPORTS SLIDER LOGIC ---
-let reportCurrentSlide = 0;
-let reportInterval;
+// --- JOB REPORTS MINI-SLIDER LOGIC ---
+let jobReportCurrentSlide = 0;
 
-function initReportsSlider() {
-    const slides = document.querySelectorAll('#reports-slider .video-slide');
+function initJobReportsSlider() {
+    const slides = document.querySelectorAll('#job-reports-slider .video-slide');
     if (!slides.length) return;
-    
-    updateReportsSlider();
-    
-    // Auto-slide every 5 seconds for reports
-    reportInterval = setInterval(() => {
-        moveReportSlide(1);
-    }, 5000);
-    
-    // Pause auto-slide on hover
-    const reportsContainer = document.getElementById('reports-slider-container');
-    if (reportsContainer) {
-        reportsContainer.addEventListener('mouseenter', () => clearInterval(reportInterval));
-        reportsContainer.addEventListener('mouseleave', () => {
-            reportInterval = setInterval(() => moveReportSlide(1), 5000);
-        });
-    }
+    updateJobReportsSlider();
 }
 
-function updateReportsSlider() {
-    const slider = document.getElementById('reports-slider');
-    const dots = document.querySelectorAll('#reports-bullets .bullet-dot');
+function updateJobReportsSlider() {
+    const slider = document.getElementById('job-reports-slider');
+    const dots = document.querySelectorAll('#job-reports-bullets .bullet-dot');
     
     if (!slider) return;
-    slider.style.transform = `translateX(-${reportCurrentSlide * 100}%)`;
+    slider.style.transform = `translateX(-${jobReportCurrentSlide * 100}%)`;
     
     dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === reportCurrentSlide);
+        dot.classList.toggle('active', i === jobReportCurrentSlide);
     });
 }
 
-function moveReportSlide(direction) {
-    const slides = document.querySelectorAll('#reports-slider .video-slide');
+function moveJobReportSlide(direction) {
+    const sliderContainer = document.getElementById('job-reports-slider');
+    const slides = sliderContainer.querySelectorAll('.video-slide');
     if (!slides.length) return;
-    reportCurrentSlide = (reportCurrentSlide + direction + slides.length) % slides.length;
-    updateReportsSlider();
+    jobReportCurrentSlide = (jobReportCurrentSlide + direction + slides.length) % slides.length;
+    updateJobReportsSlider();
 }
 
-function goToReportSlide(index) {
-    reportCurrentSlide = index;
-    updateReportsSlider();
+function goToJobReportSlide(index) {
+    jobReportCurrentSlide = index;
+    updateJobReportsSlider();
 }
 
 // --- YOUTUBE API INTEGRATION ---
