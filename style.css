@@ -972,7 +972,40 @@ footer {
     overflow: hidden;
 }
 
-/* Report Slide Specific Styles - Live PDF Window Frame Preview */
+/* Integrated Technical Documentation Styles */
+.technical-docs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.doc-group {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.doc-group-title {
+    font-size: 0.9rem;
+    color: var(--accent-1);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.doc-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.small-frame {
+    height: 180px !important;
+    width: 100% !important;
+}
+
 .report-live-container {
     width: 100%;
     aspect-ratio: 21 / 9;
