@@ -857,60 +857,119 @@ footer {
     font-family: var(--font-heading);
 }
 
-/* Job Showcase Video Container */
-.job-video-wrapper {
-    margin: 2rem 0 0 0;
-    padding: 2rem;
+/* Video Slider Styles */
+.slider-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+}
+
+.slider-progress-bar {
+    display: flex;
+    gap: 6px;
+    padding: 15px 15px 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+}
+
+.progress-segment {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-1);
+    box-shadow: 0 0 10px var(--accent-1);
+}
+
+.progress-segment.active .progress-fill {
+    /* Animation handled by JS or CSS transition */
+}
+
+.video-slider {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.video-slide {
+    min-width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.slide-header {
+    padding: 3rem 2rem 1.5rem;
     text-align: center;
 }
-.job-video-flex {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.job-video-cropper {
-    flex: 1 1 500px;
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 16 / 9;
-    position: relative;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-    background: #000;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+
+.slide-header h3 {
+    color: var(--accent-1);
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-heading);
 }
 
-.job-video-cropper:hover {
-    border-color: var(--accent-1);
-    transform: translateY(-5px);
+.slide-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-.job-video-cropper iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    transform: none; /* Remove previous crop scale */
-    border: none;
-    outline: none;
-}
-.job-video-player {
-    flex: 1 1 450px;
+.slider-video {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    display: block;
     background: #000;
-    outline: none;
-    border: 1px solid var(--glass-border);
-    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.job-video-player:hover {
-    border-color: var(--accent-1);
-    transform: translateY(-5px);
+.slider-arrow {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    color: #fff;
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: var(--accent-1);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-1);
+}
+
+.slider-arrow.prev { left: 20px; }
+.slider-arrow.next { right: 20px; }
+
+/* Adjust job-video-cropper for slider */
+.video-slide .job-video-cropper {
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
 }
