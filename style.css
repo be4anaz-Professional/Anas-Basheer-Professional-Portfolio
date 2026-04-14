@@ -254,6 +254,19 @@ a {
     100% { transform: translateY(50px) scale(1.1); }
 }
 
+/* YouTube Blocked Fallback - Animated Gradient Hero Background */
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.video-bg-fallback {
+    background: linear-gradient(135deg, #0a0a1a, #0d1b3e, #1a0a2e, #0a1628);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
 /* Sections Common */
 section {
     padding: 6rem 5%;

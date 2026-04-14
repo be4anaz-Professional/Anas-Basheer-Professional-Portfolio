@@ -183,10 +183,45 @@ function goToJobReportSlide(index) {
 }
 
 // --- YOUTUBE API INTEGRATION ---
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// Load YouTube API with error handling (graceful fallback if blocked by Firefox/LinkedIn/privacy)
+try {
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    tag.onerror = function() {
+        // YouTube failed to load (blocked by browser/firewall/LinkedIn)
+        console.warn('YouTube API blocked - using fallback background');
+        activateVideoBgFallback();
+    };
+    // Timeout fallback: if API doesn't respond in 5 seconds, use CSS background
+    setTimeout(() => {
+        if (!ytApiReady) {
+            console.warn('YouTube API timed out - activating fallback');
+            activateVideoBgFallback();
+        }
+    }, 5000);
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+} catch(e) {
+    console.warn('YouTube API could not be loaded:', e);
+    activateVideoBgFallback();
+}
+
+function activateVideoBgFallback() {
+    // Show a stunning CSS gradient as fallback hero background
+    const videoBg = document.querySelector('.video-bg');
+    if (videoBg) {
+        videoBg.style.background = 'linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 30%, #1a0a2e 60%, #0a1628 100%)';
+        videoBg.style.animation = 'gradientShift 8s ease infinite';
+    }
+    // Also show fallback for the showcase player slot
+    const showcaseSlot = document.getElementById('showcase-player');
+    if (showcaseSlot) {
+        showcaseSlot.innerHTML = `
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);color:#fff;font-size:0.9rem;text-align:center;padding:1rem;">
+                <span>🎬 <a href="https://youtu.be/d1MAPn05Aw8?t=2404" target="_blank" style="color:#4fc3f7;text-decoration:underline;">Watch IBAK Germany Training on YouTube</a></span>
+            </div>`;
+    }
+}
 
 let ytPlayer; // Background Player
 
