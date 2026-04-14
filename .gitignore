@@ -1,0 +1,23 @@
+# Ignore all sensitive documents
+*.pdf
+*.docx
+*.xlsx
+*.dwg
+*.jpg
+*.jpeg
+
+# Exclude specific folders
+norka/
+Pictures job/
+
+# Whitelist project-specific files we DO want in the website
+!index.html
+!style.css
+!main.js
+!REPORTS/*.pdf
+!deflection.png
+!ibak-ikas.png
+!sewergems.png
+!job-video-1.mp4
+!job-video-2.mp4
+!Anas_Basheer_CV.pdf
