@@ -1168,3 +1168,56 @@ footer {
 .hobbies-section {
     padding-bottom: 2rem;
 }
+
+/* PDF Preview Cards — Firefox & All Browser Compatible */
+.pdf-preview-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, rgba(0,242,254,0.05), rgba(79,172,254,0.08));
+    border-top: 1px solid rgba(0,242,254,0.1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    padding: 1rem;
+    text-align: center;
+}
+
+.pdf-preview-card:hover {
+    background: linear-gradient(135deg, rgba(0,242,254,0.12), rgba(79,172,254,0.18));
+}
+
+.pdf-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 8px rgba(0,242,254,0.4));
+}
+
+.pdf-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.pdf-open-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,242,254,0.25);
+}
+
+.pdf-preview-card:hover .pdf-open-btn {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,242,254,0.45);
+}
